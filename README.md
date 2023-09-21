@@ -25,6 +25,6 @@ You can easily modify this project for your environment:
 - Don't want notifications?, just delete one command
 
 ## Notes
-For some weird reason I couldn't create default uinput device and I had to manually specify the path. Also after I've run it and tried creating default again it worked, but after a reboot it was broke again.
-`thread::sleep(Duration::from_secs(1));` I don't know if it has to be that long, you can add comment if you know more about it
-`thread::sleep(Duration::from_millis(1));` I've added it, because for longer strings it didn't work
+- For some weird reason I couldn't create default uinput device and I had to manually specify the path. Also after I've run it and tried creating default again it worked, but after a reboot it was broke again.
+- `thread::sleep(Duration::from_secs(1));` I don't know if it has to be that long, you can add comment if you know more about it
+- `thread::sleep(Duration::from_millis(1));` I've added it, because for longer strings it didn't work
