@@ -13,7 +13,7 @@ sudo install pastesim /usr/local/bin
 ```
 
 ## Usage example
-To Bind it to `Shift + V` in Hyprland, add the following line to the configuration file  `.config/hypr/hyprland.conf'
+To Bind it to `Shift + V` in Hyprland, add the following line to the configuration file  `.config/hypr/hyprland.conf`
 ```
 bind = $mainMod SHIFT, V, exec, pastesim
 ```
