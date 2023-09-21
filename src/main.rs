@@ -1,7 +1,7 @@
 use std::process::{Command, Stdio};
 use uinput::event::Keyboard::All;
 use uinput::event::keyboard::Key;
-use uinput::device::{ Device, Builder};
+use uinput::device::Device;
 use std::thread;
 use std::time::Duration;
 
@@ -12,7 +12,7 @@ fn main() {
     clipboard.stdout.pop();
     let stdout = String::from_utf8(clipboard.stdout).expect("Invalid UTF-8 in stdout");
 
-	let mut device = Builder::open("/dev/uinput").unwrap()
+	let mut device = uinput::default().unwrap()
 		.name("keyboard").unwrap()
 		.event(All).unwrap()
 		.create().unwrap();

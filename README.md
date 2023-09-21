@@ -2,8 +2,9 @@
 `pastesim` is a simple tool that takes contents of clipboard and simulates keyboard input. It was build to bypass applications that don't allow pasting.
 
 ## Requirements:
-- wl-copy
-- notify-send - used to notify about unimplemented characters
+- `wl-copy`
+- `notify-send` - used to notify about unimplemented characters
+- uinput device has path `/dev/uinput`
 
 ## Build and install
 ```
@@ -25,6 +26,13 @@ You can easily modify this project for your environment:
 - Don't want notifications?, just delete one command
 
 ## Notes
-- For some weird reason I couldn't create default uinput device and I had to manually specify the path. Also after I've run it and tried creating default again it worked, but after a reboot it was broke again.
+- I disabled default features because I don't use systemd and my uinput device has path `/dev/uinput`, if your path is `/dev/misc/uinput` then you should enable default features by replacing in `Cargo.toml`:
+```
+uinput = { version = "0.1.3", default-features = false }
+```
+with
+```
+uinput = "0.1.3"
+```
 - `thread::sleep(Duration::from_secs(1));` I don't know if it has to be that long, you can add comment if you know more about it
 - `thread::sleep(Duration::from_millis(1));` I've added it, because for longer strings it didn't work
