@@ -1,7 +1,7 @@
 use std::process::{Command, Stdio};
 use uinput::event::Keyboard::All;
 use uinput::event::keyboard::Key;
-use uinput::device::Device;
+use uinput::device::{ Device, Builder};
 use std::thread;
 use std::time::Duration;
 
@@ -12,8 +12,7 @@ fn main() {
     clipboard.stdout.pop();
     let stdout = String::from_utf8(clipboard.stdout).expect("Invalid UTF-8 in stdout");
 
-
-	let mut device = uinput::default().unwrap()
+	let mut device = Builder::open("/dev/uinput").unwrap()
 		.name("keyboard").unwrap()
 		.event(All).unwrap()
 		.create().unwrap();
@@ -125,6 +124,7 @@ fn simulate_key_click(device: &mut Device, c: &char) {
         '>' => with_shift_key(device, &Key::Dot),
         '?' => with_shift_key(device, &Key::Slash),
         '\n' => device.click(&Key::Enter).unwrap(),
+        ' ' => device.click(&Key::Space).unwrap(),
         _ => {
             let error_msg = format!("Character '{c}' is not implemented");
             Command::new("notify-send")
