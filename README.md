@@ -21,9 +21,9 @@ bind = $mainMod SHIFT, V, exec, pastesim
 
 ## Modifying
 You can easily modify this project for your environment:
-- Need other characters? [uinput Keyboard events](https://docs.rs/uinput/latest/uinput/event/keyboard/enum.Key.html)
-- X11?, just replace wl-copy
-- Don't want notifications?, just delete one command
+- Need other characters? - [uinput Keyboard events](https://docs.rs/uinput/latest/uinput/event/keyboard/enum.Key.html)
+- X11?  -just replace wl-copy
+- Don't want notifications? - just delete one command
 
 ## Notes
 - I disabled default features because I don't use systemd and my uinput device has path `/dev/uinput`, if your path is `/dev/misc/uinput` then you should enable default features by replacing in `Cargo.toml`:
