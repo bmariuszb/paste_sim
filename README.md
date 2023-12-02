@@ -22,7 +22,7 @@ bind = $mainMod SHIFT, V, exec, pastesim
 ## Modifying
 You can easily modify this project for your environment:
 - Need other characters? - [uinput Keyboard events](https://docs.rs/uinput/latest/uinput/event/keyboard/enum.Key.html)
-- X11?  -just replace wl-copy
+- X11? - just replace wl-copy
 - Don't want notifications? - just delete one command
 
 ## Notes
