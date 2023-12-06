@@ -36,3 +36,5 @@ uinput = "0.1.3"
 ```
 - `thread::sleep(Duration::from_secs(1));` I don't know if it has to be that long, you can add comment if you know more about it
 - `thread::sleep(Duration::from_millis(1));` I've added it, because for longer strings it didn't work
+
+- I noticed that when I update kernel then path `/lib/modules/$(uname -r)` is no longer viable and thus `sudo modprobe uinput` is not working and you have to restart your computer to use newest kernel and use this program
