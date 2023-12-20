@@ -1,0 +1,16 @@
+name: Test paste_sim in headless Hyprland
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build docker image
+        run: docker build -t artix-hyprland .
+        shell: bash
+      - name: Run headless Hyprland
+        # Hyprland shouldn't be run as root
+        run: docker run --user 1000:1000 artix-hyprland
